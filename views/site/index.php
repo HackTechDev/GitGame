@@ -17,10 +17,11 @@ $this->title = 'Git Game';
 
             foreach($dataTeam as $Team) {
                 echo "<tr>";
-                echo "<td>" . $Team["name"] . "</td><td>&nbsp;" . $Team["project"] . "</td><td>&nbsp;";
+                echo "<td>" . $Team["name"] . "</td><td>&nbsp;" . $Team["project"] . "</td><td>&nbsp;" . $Team["step"]. "</td><td>&nbsp;";
                 for($i = 0 ; $i < $Team["commit"]; $i++) {
                     echo "@";
                 }
+                echo  "&nbsp;" . $Team["commit"];
                 echo "</td></tr>";
             }
             

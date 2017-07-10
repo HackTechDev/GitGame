@@ -71,19 +71,27 @@ class SiteController extends Controller
 
         $teamArr = array();
         foreach($Teams as $Team) {
+            // Get commit
             //$commitCount = count($client->api('repo')->commits()->all('Nekrofage',  $Team->project, array('sha' => 'master')));
-            $commitCount = rand(5, 20);
-            $teamArr[] = array("name" => $Team->name, "project" => $Team->project,  "commit" => $commitCount);
-            //$dataTeams .= $Team->id . " " . $Team->name . " " . $Team->project . " " . $commitCount;
-            //$dataTeams .= "<br>";
+            $commitCount = rand(5, 50);
+            $teamArr[] = array("name" => $Team->name, "project" => $Team->project,  "commit" => $commitCount, "step" => 0);
         }   
 
-        // Sort array
-        /*
+        // Sort multiarray by interger
         usort($teamArr, function($a, $b) {
             return $a['commit'] - $b['commit'];
         });
-        */
+
+        
+        for ($row = 0; $row < 6; $row++) {
+            $teamArr[$row]["step"] = 6 - $row;
+        }
+
+        // Sor multiarray by string
+        usort($teamArr, function($a, $b) {
+            return strcmp($a["name"], $b["name"]);
+        });
+ 
 
         return $this->render('index', [
             'dataTeam'=>$teamArr,
