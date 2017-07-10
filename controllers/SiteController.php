@@ -82,6 +82,9 @@ class SiteController extends Controller
             return $a['commit'] - $b['commit'];
         });
 
+        $min = $teamArr[0]["commit"];
+        $max = $teamArr[5]["commit"];
+        
         
         for ($row = 0; $row < 6; $row++) {
             $teamArr[$row]["step"] = 6 - $row;
@@ -95,6 +98,8 @@ class SiteController extends Controller
 
         return $this->render('index', [
             'dataTeam'=>$teamArr,
+            'min' => $min,
+            'max' => $max,
         ]);
     }
 
