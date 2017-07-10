@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
+    'dsn' => 'mysql:host=localhost;dbname=gitgame', 
     'username' => 'root',
-    'password' => '',
+    'password' => 'mot2passe',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)
