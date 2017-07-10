@@ -82,7 +82,18 @@ class TeamController extends Controller
      */
     public function actionUpdate($id)
     {
+        $client = new \Github\Client();
+
+
         $model = $this->findModel($id);
+ 
+
+        $project = $model->project;
+
+        $commit = count($client->api('repo')->commits()->all('Nekrofage',  $project, array('sha' => 'master')));
+
+       
+        $model->commit = $commit;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
