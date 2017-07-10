@@ -1,0 +1,70 @@
+Installatin de Yii 2 : application Basic.
+
+1/ Répertoire de travail.
+
+[~] ➔ mkdir YII.4
+[~] ➔ cd YII.4/
+
+
+2/ Installation de 'composer'.
+
+[~/YII.4] ➔ curl -s http://getcomposer.org/installer | php
+
+
+4/ Installation de l'application 'Yii 2 basic'.
+
+[~/YII.4] ➔ php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
+
+
+5/ Lancement du serveur.
+
+[~/YII.4] ➔ cd basic/
+[~/YII.4/basic] ➔ php yii serve
+Server started on http://localhost:8080/
+Document root is "/home/util01/YII.4/basic/web"
+Quit the server with CTRL-C or COMMAND-C.
+
+
+6/ Adresse de l'application.
+
+http://localhost:8080/
+
+
+7/ Configuration de la base de données.
+
+Ouvrir : 
+
+config/db.php
+
+Chercher : 
+
+   'dsn' => 'mysql:host=localhost;dbname=yii2basic',
+    'username' => 'root',
+    'password' => '', 
+
+Remplacer par : 
+
+    'dsn' => 'mysql:host=localhost;dbname=gitgame',                                                                                                                                   
+    'username' => 'root',
+    'password' => 'mot2passe',
+
+
+8/ Création de la base de données 'gitgame' et de la table 'team'.
+
+http://localhost/phpmyadmin/
+
+
+9/ Lancement de Gii.
+
+http://localhost:8080/index.php?r=gii
+
+
+10/ Génération d'un modéle et du CRUD.
+
+http://www.yiiframework.com/doc-2.0/guide-start-gii.html
+
+
+11/ Lien.
+
+https://github.com/yiisoft/yii2-app-basic
+
