@@ -14,7 +14,7 @@ $this->title = 'Git Game';
         <div class="row">
             <table>
             <?php
-            $scale = 500 / ( $max - $min);
+            $scale = 500 / $max ;
 
             echo $scale . " " . $min . " " . $max;
 
