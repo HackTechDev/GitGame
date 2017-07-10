@@ -9,6 +9,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Team;
+
 
 class SiteController extends Controller
 {
@@ -61,7 +63,21 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $client = new \Github\Client();
+ 
+        $dataTeams  = "";
+
+        $Teams = Team::find()->where(['id'] <= 6)->all();                                                                                                                                      
+
+        foreach($Teams as $Team) {
+            $commitCount = count($client->api('repo')->commits()->all('Nekrofage',  $Team->project, array('sha' => 'master')));
+            $dataTeams .= $Team->id . " " . $Team->name . " " . $Team->project . " " . $commitCount;
+            $dataTeams .= "<br>";
+        }   
+
+        return $this->render('index', [
+            'dataTeams'=>$dataTeams,
+        ]);
     }
 
     /**
