@@ -14,8 +14,9 @@ $this->title = 'Git Game';
         <div class="row">
             <table>
             <?php
-            //echo $min . " " . $max;
             $scale = 500 / ( $max - $min);
+
+            echo $scale . " " . $min . " " . $max;
 
             foreach($dataTeam as $Team) {
                 echo "<tr>";
