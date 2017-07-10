@@ -4,6 +4,18 @@ http://localhost:8080/index.php?r=team
 
 
 2/ 
+
 https://github.com/KnpLabs/php-github-api
 
 [~/YII.5/gitgame] ➔ ../composer.phar require knplabs/github-api php-http/guzzle6-adapter
+
+
+3/ 
+
+http://localhost:8080/index.php?r=site%2Findex
+http://localhost:8080/index.php?r=site%2Fabout
+http://localhost:8080/index.php?r=site%2Fcontact
+http://localhost:8080/index.php?r=site%2Flogin
+
+
+
