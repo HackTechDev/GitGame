@@ -1,2 +1,9 @@
+1/ 
 
 http://localhost:8080/index.php?r=team
+
+
+2/ 
+https://github.com/KnpLabs/php-github-api
+
+[~/YII.5/gitgame] ➔ ../composer.phar require knplabs/github-api php-http/guzzle6-adapter
