@@ -69,14 +69,24 @@ class SiteController extends Controller
 
         $Teams = Team::find()->where(['id'] <= 6)->all();                                                                                                                                      
 
+        $teamArr = array();
         foreach($Teams as $Team) {
-            $commitCount = count($client->api('repo')->commits()->all('Nekrofage',  $Team->project, array('sha' => 'master')));
-            $dataTeams .= $Team->id . " " . $Team->name . " " . $Team->project . " " . $commitCount;
-            $dataTeams .= "<br>";
+            //$commitCount = count($client->api('repo')->commits()->all('Nekrofage',  $Team->project, array('sha' => 'master')));
+            $commitCount = rand(5, 20);
+            $teamArr[] = array("name" => $Team->name, "project" => $Team->project,  "commit" => $commitCount);
+            //$dataTeams .= $Team->id . " " . $Team->name . " " . $Team->project . " " . $commitCount;
+            //$dataTeams .= "<br>";
         }   
 
+        // Sort array
+        /*
+        usort($teamArr, function($a, $b) {
+            return $a['commit'] - $b['commit'];
+        });
+        */
+
         return $this->render('index', [
-            'dataTeams'=>$dataTeams,
+            'dataTeam'=>$teamArr,
         ]);
     }
 

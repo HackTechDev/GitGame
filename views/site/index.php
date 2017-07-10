@@ -12,11 +12,20 @@ $this->title = 'Git Game';
 
     <div class="body-content">
         <div class="row">
+            <table>
             <?php
 
-            echo $dataTeams;
-
+            foreach($dataTeam as $Team) {
+                echo "<tr>";
+                echo "<td>" . $Team["name"] . "</td><td>&nbsp;" . $Team["project"] . "</td><td>&nbsp;";
+                for($i = 0 ; $i < $Team["commit"]; $i++) {
+                    echo "@";
+                }
+                echo "</td></tr>";
+            }
+            
             ?>
+            </table>
         </div>
 
     </div>
