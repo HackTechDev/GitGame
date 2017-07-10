@@ -16,7 +16,7 @@ $this->title = 'Git Game';
             <?php
             $scale = 500 / $max ;
 
-            echo $scale . " " . $min . " " . $max;
+            //echo $scale . " " . $min . " " . $max;
 
             foreach($dataTeam as $Team) {
                 echo "<tr>";
